@@ -18,6 +18,13 @@ namespace Notify
             this.retriever = retriever;
         }
 
+        ///<summary>
+        ///Action taken when an email is received via the inbox</summary>
+        ///
+        /// <param name="title">The title of the email message</param>
+        /// <param name="body">The body of the email message</param>
+        ///
+        /// <returns>A <seealso cref="Notification" /> if this filter catches the email, otherwise null</returns>
         public Notification OnNotify(String title, String body)
         {
             if (new Regex(this.GetRegex(), RegexOptions.IgnoreCase).IsMatch(body))
